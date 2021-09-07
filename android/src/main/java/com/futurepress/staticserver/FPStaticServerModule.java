@@ -68,7 +68,7 @@ public class FPStaticServerModule extends ReactContextBaseJavaModule implements 
   }
 
   @ReactMethod
-  public void start(String _port, String root, Boolean localhost, Boolean keepAlive, Promise promise) {
+  public void start(String _port, String root, Boolean localhost, Boolean keepAlive, Promise promise, String keystorePassword) {
 
     if (server != null){
       promise.resolve(url);
@@ -124,6 +124,10 @@ public class FPStaticServerModule extends ReactContextBaseJavaModule implements 
         url = "http://localhost:" + port;
       } else {
         url = "http://" + __getLocalIpAddress() + ":" + port;
+      }
+
+      if (keystorePassword != null) {
+        server.makeSecure(NanoHTTPD.makeSSLSocketFactory("/keystore.jks", keystorePassword.toCharArray()), null);
       }
 
       server.start();
