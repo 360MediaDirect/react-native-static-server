@@ -19,6 +19,7 @@ import android.util.Log;
 
 
 import fi.iki.elonen.SimpleWebServer;
+import fi.iki.elonen.NanoHTTPD;
 
 public class FPStaticServerModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 

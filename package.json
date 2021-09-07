@@ -1,6 +1,6 @@
 {
   "name": "@360mediadirect/react-native-static-server",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/360MediaDirect/react-native-static-server.git",
