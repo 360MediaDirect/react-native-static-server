@@ -18,17 +18,20 @@ class StaticServer {
 				this.root = root || ROOT;
 				this.localOnly = (opts && opts.localOnly) || false;
 				this.keepAlive = (opts && opts.keepAlive) || false;
+        this.keystorePassword = (opts && opts.keystorePassword) || null;
 				break;
 			case 2:
 				this.port = `${port}`;
-				if (typeof(arguments[1]) === 'string') {
+        if (typeof(arguments[1]) === 'string') {
 					this.root = root;
 					this.localOnly = false;
 					this.keepAlive = false;
+          this.keystorePassword = null;
 				} else {
 					this.root = ROOT;
 					this.localOnly = (arguments[1] && arguments[1].localOnly) || false;
 					this.keepAlive = (arguments[1] && arguments[1].keepAlive) || false;
+          this.keystorePassword = (arguments[1] && arguments[1].keystorePassword) || null;
 				}
 				break;
 			case 1:
@@ -37,11 +40,13 @@ class StaticServer {
 					this.root = ROOT;
 					this.localOnly = false;
 					this.keepAlive = false;
+          this.keystorePassword = null;
 				} else {
 					this.port = PORT;
 					this.root = ROOT;
 					this.localOnly = (arguments[0] && arguments[0].localOnly) || false;
 					this.keepAlive = (arguments[0] && arguments[0].keepAlive) || false;
+          this.keystorePassword = (arguments[0] && arguments[0].keystorePassword) || null;
 				}
 				break;
 			default:
@@ -49,6 +54,7 @@ class StaticServer {
 				this.root = ROOT;
 				this.localOnly = false;
 				this.keepAlive = false;
+        this.keystorePassword = null;
 		}
 
 
@@ -69,7 +75,7 @@ class StaticServer {
 			AppState.addEventListener('change', this._handleAppStateChangeFn);
 		}
 
-		return FPStaticServer.start(this.port, this.root, this.localOnly, this.keepAlive)
+		return FPStaticServer.start(this.port, this.root, this.localOnly, this.keepAlive, this.keystorePassword)
 			.then((origin) => {
 				this._origin = origin;
 				return origin;

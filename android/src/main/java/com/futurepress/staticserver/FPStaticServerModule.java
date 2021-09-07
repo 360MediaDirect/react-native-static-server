@@ -68,7 +68,7 @@ public class FPStaticServerModule extends ReactContextBaseJavaModule implements 
   }
 
   @ReactMethod
-  public void start(String _port, String root, Boolean localhost, Boolean keepAlive, Promise promise, String keystorePassword) {
+  public void start(String _port, String root, Boolean localhost, Boolean keepAlive, String keystorePassword, Promise promise) {
 
     if (server != null){
       promise.resolve(url);
