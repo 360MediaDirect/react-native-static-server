@@ -34,6 +34,7 @@ RCT_EXPORT_METHOD(start: (NSString *)port
                   root:(NSString *)optroot
                   localOnly:(BOOL *)localhost_only
                   keepAlive:(BOOL *)keep_alive
+                  keystorePassword:(NSString *)keystore_password
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
 
