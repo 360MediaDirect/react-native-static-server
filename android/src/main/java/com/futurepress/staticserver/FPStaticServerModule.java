@@ -122,9 +122,9 @@ public class FPStaticServerModule extends ReactContextBaseJavaModule implements 
 
       if (keystorePassword != null) {
         server.makeSecure(NanoHTTPD.makeSSLSocketFactory("/keystore.jks", keystorePassword.toCharArray()), null);
-        url = "https"
+        url = "https";
       } else {
-        url = "http"
+        url = "http";
       }
 
       if (localhost_only) {
