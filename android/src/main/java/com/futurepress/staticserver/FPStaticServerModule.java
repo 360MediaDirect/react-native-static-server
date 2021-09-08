@@ -120,15 +120,17 @@ public class FPStaticServerModule extends ReactContextBaseJavaModule implements 
         server = new WebServer(__getLocalIpAddress(), port, www_root);
       }
 
-
-      if (localhost_only) {
-        url = "http://localhost:" + port;
-      } else {
-        url = "http://" + __getLocalIpAddress() + ":" + port;
-      }
-
       if (keystorePassword != null) {
         server.makeSecure(NanoHTTPD.makeSSLSocketFactory("/keystore.jks", keystorePassword.toCharArray()), null);
+        url = "https"
+      } else {
+        url = "http"
+      }
+
+      if (localhost_only) {
+        url = url + "://localhost:" + port;
+      } else {
+        url = url + "://" + __getLocalIpAddress() + ":" + port;
       }
 
       server.start();
