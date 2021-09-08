@@ -18,7 +18,7 @@ class StaticServer {
 				this.root = root || ROOT;
 				this.localOnly = (opts && opts.localOnly) || false;
 				this.keepAlive = (opts && opts.keepAlive) || false;
-        this.keystorePassword = (opts && opts.keystorePassword) || null;
+        this.keystorePassword = opts.keystorePassword || null;
 				break;
 			case 2:
 				this.port = `${port}`;
@@ -31,7 +31,7 @@ class StaticServer {
 					this.root = ROOT;
 					this.localOnly = (arguments[1] && arguments[1].localOnly) || false;
 					this.keepAlive = (arguments[1] && arguments[1].keepAlive) || false;
-          this.keystorePassword = (arguments[1] && arguments[1].keystorePassword) || null;
+          this.keystorePassword = arguments[1].keystorePassword || null;
 				}
 				break;
 			case 1:
@@ -46,7 +46,7 @@ class StaticServer {
 					this.root = ROOT;
 					this.localOnly = (arguments[0] && arguments[0].localOnly) || false;
 					this.keepAlive = (arguments[0] && arguments[0].keepAlive) || false;
-          this.keystorePassword = (arguments[0] && arguments[0].keystorePassword) || null;
+          this.keystorePassword = arguments[0].keystorePassword || null;
 				}
 				break;
 			default:
